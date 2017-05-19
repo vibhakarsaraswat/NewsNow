@@ -6,17 +6,17 @@ package com.example.vibs.newsnow;
 
 public class News {
     private String mTitle;
-    private String mNewsAuthor;
+    private String mSectionName;
     private String mWebUrl;
 
-    public News(String title, String newsAuthor, String webUrl) {
+    public News(String title, String sectionName, String webUrl) {
         mTitle = title;
-        mNewsAuthor = newsAuthor;
+        mSectionName = sectionName;
         mWebUrl = webUrl;
     }
 
     public String getTitle() { return mTitle; }
-    public String getNewsAuthor() { return mNewsAuthor; }
+    public String getSectionName() { return mSectionName; }
     public String getWebUrl() { return mWebUrl; }
 
 }

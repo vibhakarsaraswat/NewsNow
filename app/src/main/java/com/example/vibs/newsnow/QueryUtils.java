@@ -27,7 +27,7 @@ public class QueryUtils {
 
     private static String webTitle;
     private static String newsWebUrl;
-    private static String authorTitle;
+    private static String sectionName;
 
     /**
      * Creating a private constructor to avoid object creation of this class.
@@ -145,20 +145,12 @@ public class QueryUtils {
                         JSONObject resultDetails = resultsArray.getJSONObject(i);
                         if (resultDetails.has("webTitle")) {
                             webTitle = resultDetails.getString("webTitle");
+                            sectionName = resultDetails.getString("sectionName");
                         }
                         if (resultDetails.has("webUrl")) {
                             newsWebUrl = resultDetails.getString("webUrl");
                         }
-                        if (resultDetails.has("tags")) {
-                            JSONArray tagsArray = resultDetails.getJSONArray("tags");
-                            if (tagsArray.length() > 0) {
-                                JSONObject tagsDetails = tagsArray.getJSONObject(0);
-                                if (tagsDetails.has("webTitle")) {
-                                    authorTitle = tagsDetails.getString("webTitle");
-                                    newses.add(new News(webTitle, authorTitle, newsWebUrl));
-                                }
-                            }
-                        }
+                        newses.add(new News(webTitle, sectionName, newsWebUrl));
                     }
                 }
             }
